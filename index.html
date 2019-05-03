@@ -12,8 +12,8 @@
 </head>
 
 <body>
-    <div class="main-carousel">
-        <div class="carousel-cell" id="number-one">
+    <div class="main-carousel" id="main-carousel">
+        <!-- <div class="carousel-cell" id="number-one">
             <div class="container">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. </p>
@@ -41,15 +41,25 @@
             <div class="container">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. </p>
-            </div>
-        </div>
+            </div> 
+        </div> -->
     </div>
     <div class="progress-bar"></div>
-    <button id="btn-restart">Restart</button> 
+    <button id="btn-restart">Restart</button>
+
+    <script id="cities-array-element" type="x-tmpl-mustache">
+        <div class="container">
+            <img src="{{ imageSrc }}" alt="Photo placeholder">
+            <h3>{{ title }}</h3> 
+            <p>{{ description }}</p>
+        </div>
+    </script>
+
 
     <script src="./vendor/flickity.pkgd.js"></script>
     <script src="./vendor/hash.js"></script>
+    <script src="./vendor/mustache.js"> </script> 
     <script src="./js/script.js"></script>
 </body>
-
+.
 </html>
