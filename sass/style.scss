@@ -1,17 +1,10 @@
 .carousel-cell {
-    width: 100%; 
-    height: 50vh;
-    min-height: 250px; 
-    margin-right: 10px;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    .container {
-        max-width: 1200px;
-        display: flex;
-        align-items: flex-end;
-        color: aliceblue;
-      }
+    height: 50vh; 
+    position: relative;     
+    text-align: center;
+    img { 
+        object-fit: cover;
+    }
 }
    
 .flickity-page-dots {
@@ -31,5 +24,5 @@
     height: 20px;
     width: 0;
     background: #333;
-  }
+}
    

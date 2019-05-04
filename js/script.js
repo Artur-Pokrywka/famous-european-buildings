@@ -36,18 +36,15 @@ var citiesArray = [
             }
 ];
 
-
 function carouselBuilder() {
   for (var i = 0; i < citiesArray.length; i++ ){
     var div = document.createElement("div");
-    div.setAttribute("class", "carousel-cell");
-    div = Mustache.render(carouselElement, citiesArray[i]);  
+    div = Mustache.render(carouselElement, citiesArray[i]); 
     carouselContainer.insertAdjacentHTML('beforeend', div);   
     // console.log(div);  
   }
 }
 carouselBuilder();
-
 
 var flkty = new Flickity( elem, { 
   cellAlign: 'left',
