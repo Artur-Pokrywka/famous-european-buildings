@@ -1,13 +1,12 @@
 .main-carousel {
-    height: 50vh;
+    height: 100vh;
     min-height: 250px;
-    .container {
-        // max-width: 1200px;  
+    .container {  
         width: 100%;  
         text-align: center;
         img {
-            object-fit: fill;
-            height: 50vh;
+            object-fit: cover;
+            height: 100vh;
             width: 100%;
             position: relative;
         }
@@ -15,7 +14,8 @@
             position: absolute;
             bottom: 0;
             color: aliceblue; 
-            padding: 0;   
+            padding: 0; 
+            margin: 0 20%;  
         }
     }
 }
@@ -40,11 +40,11 @@
 }
 
 .map-container {
-	max-width: 400px; 
-	margin: 0 auto;
+    margin: 0 auto;
+    text-align: center;
+    #map {
+        height: 400px;  
+        width: 100%;  
+    }
 }
 
-#map {
-    height: 200px;  
-    width: 100%;  
-}

@@ -1,5 +1,5 @@
 .main-carousel {
-  height: 50vh;
+  height: 100vh;
   min-height: 250px;
 }
 
@@ -9,9 +9,9 @@
 }
 
 .main-carousel .container img {
-  -o-object-fit: fill;
-  object-fit: fill;
-  height: 50vh;
+  -o-object-fit: cover;
+  object-fit: cover;
+  height: 100vh;
   width: 100%;
   position: relative;
 }
@@ -21,6 +21,7 @@
   bottom: 0;
   color: aliceblue;
   padding: 0;
+  margin: 0 20%;
 }
 
 .flickity-page-dots {
@@ -43,12 +44,12 @@
 }
 
 .map-container {
-  max-width: 400px;
   margin: 0 auto;
+  text-align: center;
 }
 
-#map {
-  height: 200px;
+.map-container #map {
+  height: 400px;
   width: 100%;
 }
 
