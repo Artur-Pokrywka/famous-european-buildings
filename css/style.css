@@ -1,0 +1,55 @@
+.main-carousel {
+  height: 50vh;
+  min-height: 250px;
+}
+
+.main-carousel .container {
+  width: 100%;
+  text-align: center;
+}
+
+.main-carousel .container img {
+  -o-object-fit: fill;
+  object-fit: fill;
+  height: 50vh;
+  width: 100%;
+  position: relative;
+}
+
+.main-carousel .container .caption {
+  position: absolute;
+  bottom: 0;
+  color: aliceblue;
+  padding: 0;
+}
+
+.flickity-page-dots {
+  display: none;
+}
+
+#btn-restart {
+  position: fixed;
+  background-color: black;
+  color: aliceblue;
+  text-transform: uppercase;
+  top: 0;
+  right: 0;
+}
+
+.progress-bar {
+  height: 20px;
+  width: 0;
+  background: #333;
+}
+
+.map-container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+#map {
+  height: 200px;
+  width: 100%;
+}
+
+/*# sourceMappingURL=style.css.map */

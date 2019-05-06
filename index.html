@@ -13,10 +13,21 @@
 
 <body>
     <div class="main-carousel" id="main-carousel">
-        
+
     </div>
     <div class="progress-bar"></div>
     <button id="btn-restart">Restart</button>
+
+    <div id="page-wrapper" class="map-container">
+        <h3>Google Maps</h3>
+        <p>
+            <button id="center-map">Center map</button>
+            <button id="center-smooth">Center smoothly</button>
+        </p>
+        <p id="infos"></p>
+        <div id="map">
+        </div>
+    </div>
 
     <script id="cities-array-element" type="x-tmpl-mustache">
         <div class="container"> 
@@ -28,11 +39,12 @@
         </div>
     </script>
 
-
     <script src="./vendor/flickity.pkgd.js"></script>
     <script src="./vendor/hash.js"></script>
-    <script src="./vendor/mustache.js"> </script> 
+    <script src="./vendor/mustache.js"> </script>
     <script src="./js/script.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnnQKLMbWir1Ze8p5YYKGwiwRsVdBkeC8&callback=initMap"></script>
+
 </body>
 
 </html>
