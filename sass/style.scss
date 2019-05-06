@@ -1,12 +1,29 @@
-.carousel-cell {
-    height: 50vh; 
-    position: relative;     
-    text-align: center;
-    img { 
-        object-fit: cover;
+.main-carousel {
+    height: 50vh;
+    min-height: 250px;
+    .container {
+        // max-width: 1200px;  
+        width: 100%;  
+        text-align: center;
+        img {
+            object-fit: fill;
+            height: 50vh;
+            width: 100%;
+            position: relative;
+        }
+        .caption {
+            position: absolute;
+            bottom: 0;
+            color: aliceblue; 
+            padding: 0;   
+        }
     }
 }
-   
+
+.progress-bar {
+    
+}
+
 .flickity-page-dots {
     display: none;
 }
