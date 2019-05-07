@@ -91,11 +91,13 @@ window.initMap = function() {
         });
 
         // MARKER
-       
     function rewind() { 
-        var slides = flkty.cells;
-        console.log(slides);  
-        flkty.select( slides[3], true, true );    
+        var slides = document.getElementsByClassName("container");
+        for (var i = 0; i < slides.length; i++) {
+            
+            console.log(slides[2]);
+        }
+        flkty.select( slides[i], true, true ); 
     };  
     
     function addMarkersForCoordinates() {
