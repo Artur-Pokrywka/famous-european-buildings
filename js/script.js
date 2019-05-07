@@ -5,43 +5,9 @@ var restartButton = document.getElementById("btn-restart");
 var progressBar = document.querySelector('.progress-bar');
 var infos = document.getElementById("infos");
 var mapCoordinates = [];
-
 var carouselContainer = document.getElementById("main-carousel");
 var carouselElement = document.getElementById("cities-array-element").innerHTML;
 Mustache.parse(carouselElement);
-
-var citiesArray = [
-            {
-                imageSrc: "https://images.pexels.com/photos/87374/pexels-photo-87374.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                title: "Louvre Museum",
-                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                coords: {lat: 48.85661, lng: 2.351499}
-            },
-            {
-                imageSrc: "https://images.pexels.com/photos/1114892/pexels-photo-1114892.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                title: "Brandenburg Gate",
-                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                coords: {lat: 52.5163 , lng: 13.3777}
-            },
-            {
-                imageSrc: "https://images.pexels.com/photos/1243538/pexels-photo-1243538.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                title: "Papal Basilica of St. Peter ",
-                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                coords: {lat: 41.9022 , lng: 12.4537}
-            },
-            {
-                imageSrc: "https://images.pexels.com/photos/42061/architecture-building-city-dark-42061.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                title: "London Bridge ",
-                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                coords: {lat: 51.508 , lng: -0.087682}
-            },
-            {
-                imageSrc: "https://images.pexels.com/photos/83133/night-83133.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                title: "Wilanow Palace ",
-                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                coords: {lat: 52.164089 , lng: 21.088153}
-            }
-];
 
 function carouselBuilder() {
   for (var i = 0; i < citiesArray.length; i++ ){
@@ -88,35 +54,47 @@ window.initMap = function() {
         document.getElementById('map'), {
             zoom: 7, 
             center: paris
-        });
+    });
 
-        // MARKER
-    function rewind() { 
-        var slides = document.getElementsByClassName("container");
-        for (var i = 0; i < slides.length; i++) {
-            
-            console.log(slides[2]);
-        }
-        flkty.select( slides[i], true, true ); 
+    // MARKER
+    function rewind(index) {
+        flkty.select( index, true, true );    
     };  
+
+    function registerMarkerListener(marker, index ) {
+        marker.addListener("click", function() {
+            rewind(index);
+        });
+    }
     
     function addMarkersForCoordinates() {
         for(var i = 0; i < mapCoordinates.length; i++) {
             var mapCoordinate = mapCoordinates[i];
-            var markers = new google.maps.Marker({
+            var marker = new google.maps.Marker({
                 position: mapCoordinate, 
                 map: map
             });
-            markers.addListener("click", rewind);  
+            registerMarkerListener(marker, i);
         } 
     };
     addMarkersForCoordinates();
+
+    flkty.on( 'change', function(index) {
+        for (var i = 0; i < mapCoordinates.length; i++){
+            var coordinate = mapCoordinates[index];
+            map.panTo(coordinate);
+            map.setZoom(7);
+        }
+        return coordinate; 
+     });
     
     document.getElementById("center-map").addEventListener("click", function(event) {
         event.preventDefault();
-        map.panTo(paris);
         map.setZoom(10);
     });
+
+   
+    
 
     // document.getElementById("center-smooth").addEventListener("click", function(event) {
     //     event.preventDefault();
