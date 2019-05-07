@@ -52,7 +52,6 @@ function carouselBuilder() {
 }
 carouselBuilder();
 
-
 var flkty = new Flickity( elem, { 
   cellAlign: 'left',
   contain: true,
@@ -78,6 +77,7 @@ window.initMap = function() {
         var mapCoordinate = citiesArray[i].coords;
         mapCoordinates.push(mapCoordinate);
         };  
+        return mapCoordinates;
     };
     createArraywWithCooridinates();
 
@@ -91,12 +91,13 @@ window.initMap = function() {
         });
 
         // MARKER
-
-    function rewind() {    
-        // flkty.select( flictiesArray[i], true, true );
-        console.log('hi')
-    };
-
+       
+    function rewind() { 
+        var slides = flkty.cells;
+        console.log(slides);  
+        flkty.select( slides[3], true, true );    
+    };  
+    
     function addMarkersForCoordinates() {
         for(var i = 0; i < mapCoordinates.length; i++) {
             var mapCoordinate = mapCoordinates[i];
@@ -104,9 +105,8 @@ window.initMap = function() {
                 position: mapCoordinate, 
                 map: map
             });
-            markers.addEventListener("click", rewind);
+            markers.addListener("click", rewind);  
         } 
-        console.log(markers);
     };
     addMarkersForCoordinates();
     
