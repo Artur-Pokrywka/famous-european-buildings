@@ -52,6 +52,7 @@ function carouselBuilder() {
 }
 carouselBuilder();
 
+
 var flkty = new Flickity( elem, { 
   cellAlign: 'left',
   contain: true,
@@ -61,7 +62,7 @@ var flkty = new Flickity( elem, {
 function goToBeginning() {
     flkty.select( 0, false, true );
 }
-restartButton.addEventListener ("click", goToBeginning);
+restartButton.addEventListener("click", goToBeginning);
 
 flkty.on( 'scroll', function(progress) {
     progress = Math.max( 0, Math.min( 1, progress ) );
@@ -71,8 +72,7 @@ flkty.on( 'scroll', function(progress) {
 
 // Initialize and add the map
 window.initMap = function() {
-    // The location of Uluru
-    
+    // LOCATION
     function createArraywWithCooridinates() {
         for (var i = 0; i < citiesArray.length; i++) {   
         var mapCoordinate = citiesArray[i].coords;
@@ -80,40 +80,36 @@ window.initMap = function() {
         };  
     };
     createArraywWithCooridinates();
-   
-    // var markersArray = [];
-    var marker;
-    function addMarkersForCoordinates() {
-        for(var i = 0; i < mapCoordinates.length; i++) {
-            var mapCoordinate = mapCoordinates[i];
-            var marker = new google.maps.Marker({
-                position: mapCoordinate, 
-                map: map
-            });
-            // markersArray.push(marker);
-            console.log(marker);
-        } 
-    };
-    addMarkersForCoordinates();
-    
+
     var paris = mapCoordinates[0];
-    
-    // The map, centered at Uluru
+
+    // MAP
     var map = new google.maps.Map(
         document.getElementById('map'), {
             zoom: 7, 
             center: paris
         });
-    // The marker, positioned at Uluru
-    var markerOne = new google.maps.Marker({
-        position: paris, 
-        map: map
-    });
 
-    markerOne.addListener("click", function(){
-        infos.innerHTML = "You clicked markerOne";
-    });
+        // MARKER
 
+    function rewind() {    
+        // flkty.select( flictiesArray[i], true, true );
+        console.log('hi')
+    };
+
+    function addMarkersForCoordinates() {
+        for(var i = 0; i < mapCoordinates.length; i++) {
+            var mapCoordinate = mapCoordinates[i];
+            var markers = new google.maps.Marker({
+                position: mapCoordinate, 
+                map: map
+            });
+            markers.addEventListener("click", rewind);
+        } 
+        console.log(markers);
+    };
+    addMarkersForCoordinates();
+    
     document.getElementById("center-map").addEventListener("click", function(event) {
         event.preventDefault();
         map.panTo(paris);
